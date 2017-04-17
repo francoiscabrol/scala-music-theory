@@ -1,8 +1,8 @@
 name := "scala-music-theory"
 
-organization := "francoiscabrol"
+organization := "io.github.francoiscabrol"
 
-version := "0.0.1"
+version := "0.1.0"
 
 scalaVersion := "2.11.5"
 
@@ -13,5 +13,5 @@ libraryDependencies ++= Seq(
 
 scalacOptions := Seq("-feature", "-deprecation")
 
-initialCommands := "import francoiscabrol._; import francoiscabrol.music.theory._; import francoiscabrol.music.generator._"
+initialCommands := "import francoiscabrol._; import francoiscabrol.music.theory._"
 
