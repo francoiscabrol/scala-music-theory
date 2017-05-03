@@ -1,8 +1,9 @@
-package com.francoiscabrol
+package music
 
 import org.scalatest.FlatSpec
+import testimplicitRational._
+
 import scala.language.implicitConversions
-import implicitRational._
 
 class RationalTest extends FlatSpec {
 

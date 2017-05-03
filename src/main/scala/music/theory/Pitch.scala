@@ -1,6 +1,5 @@
-package com.francoiscabrol.music.theory
+package music.theory
 
-import scala.collection.immutable
 import scala.collection.immutable.IndexedSeq
 import scala.runtime.RangedProxy
 

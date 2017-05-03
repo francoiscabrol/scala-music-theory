@@ -14,7 +14,7 @@ libraryDependencies ++= Seq(
 
 scalacOptions := Seq("-feature", "-deprecation")
 
-initialCommands := "import francoiscabrol._; import francoiscabrol.music.theory._"
+initialCommands := "import music._; import music.theory._"
 
 /**
 *  PUBLISH TO SONATYPE

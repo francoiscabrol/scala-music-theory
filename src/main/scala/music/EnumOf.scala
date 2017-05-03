@@ -1,4 +1,4 @@
-package com.francoiscabrol.music
+package music
 
 import scala.collection.mutable.ListBuffer
 import scala.language.implicitConversions

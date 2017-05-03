@@ -1,4 +1,4 @@
-package com.francoiscabrol.music.theory
+package music.theory
 
 case class Note(pitch: Pitch, duration: Duration)
 

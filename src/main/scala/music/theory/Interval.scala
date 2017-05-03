@@ -1,4 +1,4 @@
-package com.francoiscabrol.music.theory
+package music.theory
 
 sealed abstract class Interval(val semitones: Int) {
 

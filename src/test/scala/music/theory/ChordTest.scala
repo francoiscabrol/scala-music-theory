@@ -1,4 +1,4 @@
-package com.francoiscabrol.music.theory
+package music.theory
 
 import org.scalatest.{FlatSpec, GivenWhenThen}
 

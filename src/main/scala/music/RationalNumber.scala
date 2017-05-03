@@ -1,8 +1,8 @@
-package com.francoiscabrol
+package music
 
 import scala.math._
 
-package object implicitRational {
+package object testimplicitRational {
   implicit class RationalString(val sc: StringContext) extends AnyVal {
     def rat(args: String*): Rational = {
       Rational(sc.parts(0))

@@ -1,6 +1,4 @@
-package com.francoiscabrol.music.theory
-
-import scala.runtime.RangedProxy
+package music.theory
 
 trait PitchClassSet {
   val root: PitchClass

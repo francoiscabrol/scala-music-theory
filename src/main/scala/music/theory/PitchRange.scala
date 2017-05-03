@@ -1,4 +1,4 @@
-package com.francoiscabrol.music.theory
+package music.theory
 
 case class PitchRange(min: Pitch, max: Pitch) {
   require(max > min, "The max pitch should be superior to the min pitch")

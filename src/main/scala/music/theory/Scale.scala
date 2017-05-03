@@ -1,4 +1,4 @@
-package com.francoiscabrol.music.theory
+package music.theory
 
 case class Scale(root: PitchClass, sounds: Set[Interval]) extends PitchClassSet {
   require(sounds.size > 0, "A scala sould have at least 1 interval")

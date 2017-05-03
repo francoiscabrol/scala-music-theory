@@ -1,4 +1,4 @@
-package com.francoiscabrol.music.theory
+package music.theory
 
 object Alteration extends Enumeration {
   val Sharp, Bemol = Value

@@ -1,16 +1,14 @@
-package com.francoiscabrol.music.theory
+package music.theory
 
-import com.francoiscabrol.{Rational, RationalNumber}
-
-import scala.language.postfixOps
-import com.francoiscabrol.music.EnumOf
+import music.{EnumOf, RationalNumber}
 
 import scala.collection.immutable.IndexedSeq
+import scala.language.postfixOps
 import scala.runtime.RangedProxy
 
 case class Duration(initialNumer: Int, initialDenom: Int) extends RationalNumber[Duration](initialNumer, initialDenom) with Ordered[Duration] with RangedProxy[Duration] with Comparable[Duration]  {
-  require(initialNumer > 0, "The time should be up to 0")
-  require(initialDenom > 0, "The subdivision should be up to 0")
+  require(initialNumer > 0, "The numer should be up to 0")
+  require(initialDenom > 0, "The denom should be up to 0")
 
   override protected def makeNew(initialNumer: Int, initialDenom: Int): Duration = Duration(initialNumer, initialDenom)
 
