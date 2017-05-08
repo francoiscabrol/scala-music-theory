@@ -2,7 +2,18 @@ package music.theory
 
 import music.{Rational, RationalNumber}
 
-case class Signature(numberOfBeatsPerBar:Int)
+// Example Signature(4, 4)
+case class Signature(timeUnitsPerBar:Int, timeUnit: Int) {
+  require(Array(1, 2, 4, 8).contains(timeUnit), "The time unit should be 1, 2, 4 or 8")
+  def timeUnitDuration: Duration = timeUnit match {
+    case 1 => Duration.WHOLE_NOTE
+    case 2 => Duration.HALF_NOTE
+    case 4 => Duration.QUARTER_NOTE
+    case 8 => Duration.EIGHT_NOTE
+  }
+
+  def quarterNotesPerBar: Int = ((timeUnitDuration / Duration.QUARTER_NOTE).toFloat * timeUnitsPerBar).toInt
+}
 
 case class Position private(initialNumer: Int, initialDenom: Int = 1) extends RationalNumber[Position](initialNumer, initialDenom) with Ordered[Position] {
 
@@ -18,8 +29,8 @@ case class Position private(initialNumer: Int, initialDenom: Int = 1) extends Ra
   def -(d: Duration): Position = this - Position(d.numer, d.denom)
 
   def destructure(implicit signature: Signature): (Bar, Beat, Sixteenth, Tick)  = {
-    val bar = (numer / denom) / signature.numberOfBeatsPerBar
-    val beat = (numer / denom) % signature.numberOfBeatsPerBar
+    val bar = (numer / denom) / signature.quarterNotesPerBar
+    val beat = (numer / denom) % signature.quarterNotesPerBar
     val subticks = (numer * (240 * 16)) / denom - (240*16*(bar*4+beat))
     val sixteenth = subticks / 240
     val tick = subticks % 240
@@ -35,8 +46,10 @@ case class Position private(initialNumer: Int, initialDenom: Int = 1) extends Ra
 // (number of bar, number of beat, number of 16th (of beat), number of tick (240 tick/16th))
 object Position {
 
+  def zero: Position = Position(0)
+
   def apply(bar: Int, beat: Int, sixteenth: Int, tick: Int)(implicit signature: Signature): Position = {
-    val beats = bar * signature.numberOfBeatsPerBar + beat
+    val beats = bar * signature.quarterNotesPerBar + beat
     val subticks = sixteenth * 240 + tick
     val position = new Position(beats, 1) + new Position(subticks, 240 * 16)
     position

@@ -46,6 +46,8 @@ case class Duration(initialNumer: Int, initialDenom: Int) extends RationalNumber
     buffer.toIndexedSeq
   }
 
+  // TODO implement the dotted method
+
   override def self: Duration = ???
 
   override def toString = s"Duration($numer,$denom)"
