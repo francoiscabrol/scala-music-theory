@@ -15,4 +15,9 @@ class DurationTest extends FlatSpec {
     val duration = Duration.QUARTER_NOTE
     assert(duration.toFloat == 0.25f)
   }
+
+  it should "return a dotted quater note" in {
+    val duration = Duration.QUARTER_NOTE.dotted
+    assert(duration.toFloat == 0.375f)
+  }
 }
