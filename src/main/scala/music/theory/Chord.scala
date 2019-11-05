@@ -1,6 +1,6 @@
 package music.theory
 
-case class Chord(root: PitchClass, sounds: Set[Interval]) extends PitchClassSet {
+case class Chord(root: PitchClass, sounds: Set[Interval]) extends PitchClassSet(root, sounds) {
   require(sounds.size > 0, "A chord sould have at least 1 interval")
 
   def name = {

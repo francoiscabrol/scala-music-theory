@@ -16,6 +16,8 @@ case class PitchClass(integerNotation: Int, alteration: Alteration.Value = Alter
     }
   }
 
+  def intervalWith(p: PitchClass): Interval = new Interval(this.compare(p))
+
   override def toString = "PitchClass(" + name + ")"
 
   override def compare(that: PitchClass): Int = integerNotation.compareTo(that.integerNotation)

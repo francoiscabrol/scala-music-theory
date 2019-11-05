@@ -7,7 +7,7 @@ case class PreDefScale(regex: String, sounds: Set[Interval]) {
   def apply(root: PitchClass) = toScale(root)
 
   def suffix: String = {
-    regex.split("|")(0)
+    regex
   }
 
   def toScale(root: PitchClass): Scale = new Scale(root, sounds)
@@ -15,6 +15,8 @@ case class PreDefScale(regex: String, sounds: Set[Interval]) {
 
 object PreDefScale {
   def find(sounds: Set[Interval]): Option[PreDefScale] = values.find(p => p.sounds == sounds)
+
+  def findContain(sounds: Set[Interval]): List[PreDefScale] = values.filter(p => p.sounds.intersect(sounds).size > 0)
 
   def exists(predef: PreDefScale): Boolean = values.exists(p => p.sounds == predef.sounds)
 

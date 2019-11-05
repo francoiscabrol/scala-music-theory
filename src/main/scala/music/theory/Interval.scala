@@ -1,6 +1,6 @@
 package music.theory
 
-sealed abstract class Interval(val semitones: Int) {
+class Interval(val semitones: Int) {
 
   def +(interval: Interval): PreDefChord = PreDefChord(this, interval)
 

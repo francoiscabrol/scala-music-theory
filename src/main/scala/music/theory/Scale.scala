@@ -1,6 +1,6 @@
 package music.theory
 
-case class Scale(root: PitchClass, sounds: Set[Interval]) extends PitchClassSet {
+case class Scale(root: PitchClass, sounds: Set[Interval]) extends PitchClassSet(root, sounds) {
   require(sounds.size > 0, "A scala sould have at least 1 interval")
 
   def name = {
@@ -8,7 +8,7 @@ case class Scale(root: PitchClass, sounds: Set[Interval]) extends PitchClassSet 
       case Some(predef) => predef.suffix
       case None => "No-name"
     }
-    root.name + suffix
+    root.name + " " + suffix
   }
 
   def is(predef: PreDefScale): Boolean = PreDefScale.find(sounds) match {

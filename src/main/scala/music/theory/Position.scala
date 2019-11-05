@@ -36,6 +36,7 @@ object Position {
   def zero: Position = Position(0)
 
   def apply(bar: Int, beat: Int, sixteenth: Int, tick: Int)(implicit signature: Signature): Position = {
+    // TODO check calculation, probably not good
     val beats = bar * signature.quarterNotesPerBar + beat
     val subticks = sixteenth * 240 + tick
     val position = new Position(beats, 1) + new Position(subticks, 240 * 16)
