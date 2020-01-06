@@ -15,9 +15,20 @@ class PreDefScaleTest extends FlatSpec {
   }
 
   "A Dm chord" should "match a specific list of scales" in {
-    val classes = Chord("C").pitchClasses
+    val classes = Chord("Dm").getListOfScales.map(_.name).mkString(", ")
     println(classes)
-    // println(classes.getListOfScales.map(_.name))
-    assert(true)
+    assert(classes === "D Minor, D Minor Melodic")
+  }
+
+  "A E chord" should "match a specific list of scales" in {
+    val classes = Chord("E").getListOfScales.map(_.name).mkString(", ")
+    println(classes)
+    assert(classes === "E Major")
+  }
+
+  "A F# chord" should "match a specific list of scales" in {
+    val classes = Chord("F#m").getListOfScales.map(_.name).mkString(", ")
+    println(classes)
+    assert(classes === "F# Minor, F# Minor Melodic")
   }
 }

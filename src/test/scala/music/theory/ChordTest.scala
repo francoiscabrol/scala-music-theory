@@ -34,6 +34,11 @@ class ChordTest extends FlatSpec with GivenWhenThen {
     assert(chord.root == PitchClass("E"))
   }
 
+  it should "be instantiated given the name D#" in {
+    val chord = Chord("D#")
+    assert(chord.root == PitchClass("D#"))
+  }
+
   it should "be instantiated given the name E" in {
     val chord = Chord("E")
     assert(chord.root == PitchClass("E"))

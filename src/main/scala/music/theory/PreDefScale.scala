@@ -16,7 +16,7 @@ case class PreDefScale(regex: String, sounds: Set[Interval]) {
 object PreDefScale {
   def find(sounds: Set[Interval]): Option[PreDefScale] = values.find(p => p.sounds == sounds)
 
-  def findContain(sounds: Set[Interval]): List[PreDefScale] = values.filter(p => p.sounds.intersect(sounds).size > 0)
+  def findContain(sounds: Set[Interval]): List[PreDefScale] = values.filter(p => p.sounds.intersect(sounds).size >= sounds.size )
 
   def exists(predef: PreDefScale): Boolean = values.exists(p => p.sounds == predef.sounds)
 
@@ -27,7 +27,8 @@ object PreDefScale {
   }
 
   val MAJOR = PreDefScale("Major", MAJOR_SECOND, MAJOR_THIRD, PERFECT_FOUR, PERFECT_FIFTH, MAJOR_SIXTH, MAJOR_SEVEN)
-  val MINOR = PreDefScale("Minor", MAJOR_SECOND, MINOR_THIRD, PERFECT_FOUR, PERFECT_FIFTH, MAJOR_SIXTH, MAJOR_SEVEN)
+  val MINOR = PreDefScale("Minor", MAJOR_SECOND, MINOR_THIRD, PERFECT_FOUR, PERFECT_FIFTH, MINOR_SIXTH, MINOR_SEVEN)
+  val MINOR_MELODIC = PreDefScale("Minor Melodic", MAJOR_SECOND, MINOR_THIRD, PERFECT_FOUR, PERFECT_FIFTH, MAJOR_SIXTH, MAJOR_SEVEN)
 
-  val values = List(MAJOR, MINOR)
+  val values = List(MAJOR, MINOR, MINOR_MELODIC)
 }
