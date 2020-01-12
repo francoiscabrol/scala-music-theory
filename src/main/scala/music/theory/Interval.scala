@@ -1,10 +1,12 @@
 package music.theory
 
-class Interval(val semitones: Int) {
+class Interval(val semitones: Int) extends Ordered[Interval] {
 
   def +(interval: Interval): PreDefChord = PreDefChord(this, interval)
 
   def pitchClassRelativeTo(root: PitchClass): PitchClass = Pitch(root.integerNotation + semitones).pitchClass
+
+  def compare(that: Interval) = this.semitones - that.semitones
 }
 
 object Interval {

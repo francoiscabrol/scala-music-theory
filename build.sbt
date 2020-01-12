@@ -2,7 +2,7 @@ name := "scala-music-theory"
 
 organization := "io.github.francoiscabrol"
 
-version := "0.2-SNAPSHOT"
+version := "0.2.2-SNAPSHOT"
 
 scalaVersion := "2.12.10"
 
@@ -50,3 +50,5 @@ publishTo := {
   else
     Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
+
+

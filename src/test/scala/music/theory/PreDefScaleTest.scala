@@ -16,19 +16,29 @@ class PreDefScaleTest extends FlatSpec {
 
   "A Dm chord" should "match a specific list of scales" in {
     val classes = Chord("Dm").getListOfScales.map(_.name).mkString(", ")
-    println(classes)
-    assert(classes === "D Minor, D Minor Melodic")
+    assert(classes.contains("D Minor Melodic"))
+    assert(classes.contains("D Minor"))
   }
 
   "A E chord" should "match a specific list of scales" in {
-    val classes = Chord("E").getListOfScales.map(_.name).mkString(", ")
-    println(classes)
-    assert(classes === "E Major")
+    val chords = Chord("E").getListOfScales.map(_.name).mkString(", ")
+    assert(chords.contains("E Major"))
   }
 
   "A F# chord" should "match a specific list of scales" in {
-    val classes = Chord("F#m").getListOfScales.map(_.name).mkString(", ")
-    println(classes)
-    assert(classes === "F# Minor, F# Minor Melodic")
+    val chords = Chord("F#m").getListOfScales.map(_.name).mkString(", ")
+    assert(chords.contains("F# Minor Melodic"))
+    assert(chords.contains("F# Minor"))
+  }
+
+  "A Cm chord" should "match a specific list of scales" in {
+    val chords = Chord("Cm").getListOfScales.map(_.name).mkString(", ")
+    assert(chords.contains("C Minor Melodic"))
+    assert(chords.contains("C Minor"))
+  }
+
+  "isMatchRootDegree" should "work" in {
+    val res = PreDefScale.isMatchRootDegree(List(3, 4), List(2, 1, 2, 2, 2, 1))
+    assert(res === true)
   }
 }

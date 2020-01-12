@@ -5,7 +5,7 @@ class PitchClassSet(root: PitchClass, sounds: Set[Interval]) {
 
   def transposeTo(octave: Int): Array[Pitch] = pitchClasses.map(pitchClass => Pitch(pitchClass, octave))
 
-  def getListOfScales: List[Scale] = PreDefScale.findContain(sounds).map(predefScale => predefScale(root))
+  def getListOfScales: List[Scale] = PreDefScale.findContain(root, sounds)
 
   override def toString = "PitchClassSet(" + pitchClasses.map(_.name).mkString(", ") + ")"
 }
