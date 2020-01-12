@@ -27,7 +27,7 @@ homepage := Some(url("https://github.com/francoiscabrol/scala-music-theory"))
                           
 (sys.env.get("ARTIFACTORY_USERNAME"), sys.env.get("ARTIFACTORY_PASSWORD")) match {
   case (Some(user), Some(password)) => credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", user, password)
-  case _ => println("Use default credentials")
+  case _ => credentials ++= Seq() // use default
 }
 
 scmInfo := Some(
