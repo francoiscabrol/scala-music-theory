@@ -13,10 +13,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-      env:
-        ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
-        ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
     - name: Run tests
       run: sbt test
     - name: Run publish
       run: sbt publish
+      env:
+        ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+        ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}

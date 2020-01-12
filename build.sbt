@@ -24,12 +24,12 @@ pomIncludeRepository := { _ => false }
 licenses := Seq("MIT" -> url("http://www.opensource.org/licenses/mit-license.php"))
 
 homepage := Some(url("https://github.com/francoiscabrol/scala-music-theory"))
-
-credentials += Credentials("Sonatype Nexus Repository Manager",
-                           "oss.sonatype.org",
-                           sys.env("ARTIFACTORY_USERNAME"),
-                           sys.env("ARTIFACTORY_PASSWORD"))
                           
+(sys.env.get("ARTIFACTORY_USERNAME"), sys.env.get("ARTIFACTORY_PASSWORD")) match {
+  case (Some(user), Some(password)) => credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", user, password)
+  case _ => println("Use default credentials")
+}
+
 scmInfo := Some(
   ScmInfo(
     url("https://github.com/francoiscabrol/scala-music-theory"),
