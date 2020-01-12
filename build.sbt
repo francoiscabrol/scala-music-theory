@@ -25,6 +25,11 @@ licenses := Seq("MIT" -> url("http://www.opensource.org/licenses/mit-license.php
 
 homepage := Some(url("https://github.com/francoiscabrol/scala-music-theory"))
 
+credentials += Credentials("Sonatype Nexus Repository Manager",
+                           "oss.sonatype.org",
+                           sys.env("ARTIFACTORY_USERNAME"),
+                           sys.env("ARTIFACTORY_PASSWORD"))
+                          
 scmInfo := Some(
   ScmInfo(
     url("https://github.com/francoiscabrol/scala-music-theory"),
