@@ -11,3 +11,8 @@ libraryDependencies += "io.github.francoiscabrol" %% "scala-music-theory" % "0.2
 
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 ```
+
+To test:
+    `sbt test`
+To publish:
+    `sbt publish` or just merge into master, a github action will take care about that
