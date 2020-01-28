@@ -1,3 +1,6 @@
+
+![Test and Publish task](https://github.com/francoiscabrol/scala-music-theory/workflows/Scala%20CI/badge.svg)
+
 # Music theory models in Scala
 
 The idea is to create a basic Scala music theory library inspired by the [go-music-theory](https://github.com/go-music-theory/music-theory) 
