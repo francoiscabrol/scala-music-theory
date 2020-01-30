@@ -1,7 +1,8 @@
 package music.theory
+import scala.collection.SortedSet
 
 class PitchClassSet(root: PitchClass, sounds: Set[Interval]) {
-  def pitchClasses: Array[PitchClass] = root +: sounds.map(_.pitchClassRelativeTo(root)).toArray
+  def pitchClasses: Array[PitchClass] = root +: sounds.to[SortedSet].map(_.pitchClassRelativeTo(root)).toArray
 
   def transposeTo(octave: Int): Array[Pitch] = pitchClasses.map(pitchClass => Pitch(pitchClass, octave))
 

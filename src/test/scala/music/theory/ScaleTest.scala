@@ -29,4 +29,9 @@ class ScaleTest extends FlatSpec {
     assert(scale.is(PreDefScale.MAJOR))
   }
 
+  it should "return the notes sorted in the right order" in {
+    val scale = Scale("C Major")
+    assert(scale.pitchClasses.map(_.name).mkString(", ") === "C, D, E, F, G, A, B")
+  }
+
 }
